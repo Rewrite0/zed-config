@@ -1,0 +1,142 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "cmd-b": "workspace::ToggleBottomDock", // 切换底部dock
+      "alt-b": "workspace::ToggleBottomDock" // 切换底部dock
+    }
+  },
+  // 左右切换tab
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // 快速移动
+      "alt-j": ["workspace::SendKeystrokes", "5 j"],
+      "alt-k": ["workspace::SendKeystrokes", "5 k"],
+      "cmd-j": ["workspace::SendKeystrokes", "5 j"],
+      "cmd-k": ["workspace::SendKeystrokes", "5 k"],
+
+      "space w": "pane::CloseActiveItem", // 关闭当前标签页
+      "space s": "workspace::Save", // 保存当前文件
+      "space f": "file_finder::Toggle", // 打开文件查找器
+      "space p": "command_palette::Toggle", // 打开命令面板
+      "space e": "project_panel::ToggleFocus", // 从编辑器切换到项目面板
+      "space t": "terminal_panel::ToggleFocus", // 切换到终端
+
+      "g h": "editor::MoveToBeginningOfLine", // 移动到行首
+      "g l": "editor::MoveToEndOfLine" // 移动到行尾
+    }
+  },
+
+  // 终端操作
+  {
+    "context": "Terminal",
+    "bindings": {
+      "space t": "terminal_panel::ToggleFocus" // 从终端返回编辑器
+    }
+  },
+
+  // vim 方式操作文件列表
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      // 文件/目录操作
+      "a": "project_panel::NewFile", // 创建文件
+      "shift-a": "project_panel::NewDirectory", // 创建目录
+      "d": ["project_panel::Trash", { "skip_prompt": false }], // 删除到回收站
+      "shift-d": ["project_panel::Delete", { "skip_prompt": false }], // 永久删除
+      "r": "project_panel::Rename", // 重命名
+      "x": "project_panel::Cut", // 剪切
+      "y": "project_panel::Copy", // 复制
+      "p": "project_panel::Paste", // 粘贴
+      "u": "project_panel::Duplicate", // 复制并粘贴文件
+
+      // 导航
+      "j": "menu::SelectNext", // j 向下
+      "k": "menu::SelectPrevious", // k 向上
+      "h": "project_panel::CollapseSelectedEntry", // h 折叠
+      "l": "project_panel::ExpandSelectedEntry", // l 展开
+      "g g": "menu::SelectFirst", // gg 到顶部
+      "shift-g": "menu::SelectLast", // G 到底部
+
+      // 文件操作
+      "o": "project_panel::Open", // o 打开文件
+      "enter": "project_panel::Open", // Enter 打开文件
+
+      // 返回编辑器
+      "space e": "project_panel::ToggleFocus", // Space+e 返回编辑器
+      "escape": "project_panel::ToggleFocus" // ESC 返回编辑器
+    }
+  },
+
+  // tab / shift+tab 上下切换选项
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious",
+      "down": "editor::ContextMenuNext",
+      "up": "editor::ContextMenuPrevious",
+      "escape": "editor::Cancel",
+      "enter": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "Editor && showing_code_actions",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious",
+      "down": "editor::ContextMenuNext",
+      "up": "editor::ContextMenuPrevious",
+      "escape": "editor::Cancel",
+      "enter": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "menu",
+    "bindings": {
+      "tab": "menu::SelectNext",
+      "shift-tab": "menu::SelectPrevious",
+      "up": "menu::SelectPrevious",
+      "down": "menu::SelectNext"
+    }
+  },
+  {
+    "context": "Picker",
+    "bindings": {
+      "tab": "menu::SelectNext",
+      "shift-tab": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "Picker > Editor",
+    "bindings": {
+      "up": "menu::SelectPrevious",
+      "down": "menu::SelectNext",
+      "tab": "menu::SelectNext",
+      "shift-tab": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "CommandPalette",
+    "bindings": {
+      "tab": "menu::SelectNext",
+      "shift-tab": "menu::SelectPrevious"
+    }
+  }
+]
