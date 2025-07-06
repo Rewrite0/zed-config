@@ -37,6 +37,7 @@
       "space p": "command_palette::Toggle", // 打开命令面板
       "space e": "project_panel::ToggleFocus", // 从编辑器切换到项目面板
       "space t": "terminal_panel::ToggleFocus", // 切换到终端
+      "space r": "editor::Rename", // 重命名变量
 
       "g h": "editor::MoveToBeginningOfLine", // 移动到行首
       "g l": "editor::MoveToEndOfLine" // 移动到行尾
@@ -47,7 +48,7 @@
   {
     "context": "Terminal",
     "bindings": {
-      "space t": "terminal_panel::ToggleFocus" // 从终端返回编辑器
+      "escape": "terminal_panel::ToggleFocus" // 从终端返回编辑器
     }
   },
 
